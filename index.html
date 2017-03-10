@@ -1,50 +1,634 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    <!-- .slide: data-background="#660000" -->
+                    ## Curso de Ruby on Rails
+                </script>
+            </section>
+            <section data-markdown>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+                <script type="text/template">
+                    ## Overview ##
+
+                    <!-- .element: class="fragment" data-fragment-index="0" -->
+                    - Preparando o ambiente
+                    <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * - Instalando o Ruby
+                    <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * - Configurando o Git
+                    <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * - Instalando o Rails
+                    <!-- .element: class="fragment" data-fragment-index="4" -->
+                    * - Configurando o SGBD
+                    <!-- .element: class="fragment" data-fragment-index="5" -->
+                    - Testando o ambiente
+                    <!-- .element: class="fragment" data-fragment-index="6" -->
+                </script>
+            </section>
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Preparando o ambiente
+                    </script>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h4>Opções</h4>
+                    </div>
+                    <img data-src="img/opções.svg">
+                    <aside class="notes">
+                        Você pode utilizar diferentes cenários para Desenvolver em Ruby e consequentemente em RubyOnRails, Linux, Mac, VirtualBox, VMware, Vagrant, Docker e Bash4Windows 10
+                    </aside>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Definindo o [sistema operacional](https://www.ubuntu.com/download/ubuntu-flavours)
+                    </script>
+                </section>
+                <section>
+                    <img data-src="img/so.png">
+                    <aside class="notes">
+                        Estaremos configurando um ambiente de desenvolvimento Ruby on Rails no Ubuntu 16.04 Xenial Xerus. A razão pela qual vamos usar o Ubuntu é porque a maioria do código que você escreve será executado em um servidor Linux. O Ubuntu é uma das distribuições
+                        Linux mais fáceis de usar, com muita documentação, por isso é uma excelente para começar. Você vai querer baixar a versão Desktop mais recente aqui: http://releases.ubuntu.com/16.04/ Alguns de vocês podem optar por desenvolver
+                        no Ubuntu Server para que seu ambiente de desenvolvimento corresponda ao seu servidor de produção. Você pode encontrá-lo no mesmo link de download acima.
+                    </aside>
+                </section>
+                <section>
+                    <iframe style="width:100%; height:650px" frameborder="no" data-src="https://www.ubuntu.com/download/ubuntu-flavours"></iframe>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-red">
+                        <h2>Setup Ruby
+                            <h2>
+                    </div>
+                    <img data-src="img/ruby.svg">
+                </section>
+                <section>
+                    <h3>Escolha a versão mais recente ou Recomendada</h3>
+                    <h2>Atualmente 2.4.0</h2>
+                    <img src="img/goRails.svg" alt="Go Rails">
+                </section>
+                <section>
+                    <h3 class="fragment grow" data-fragment-index="1">Dependências</h3>
+                    <p class="fragment highlight-current-blue grow" data-fragment-index="2"><code>sudo apt-get update</code></p>
+                    <p class="fragment highlight-current-blue grow" data-fragment-index="3">
+                        <code data-trim data-noescape>sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs</code>
+                    </p>
+                </section>
+                <section data-transition="zoom" data-transition-speed="fast">
+                    <h3>Obtendo o Gerenciador de Versões do Ruby <strong>rbenv</strong></h3>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code>cd</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <code>echo 'eval "$(rbenv init -)"' >> ~/.bashrc</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code>exec $SHELL</code>
+                        </li>
+                    </ul>
+                </section>
+                <section data-transition-speed="fast">
+                    <h3>Obtendo o Ruby <strong>ruby-build</strong></h3>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code>echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code>exec $SHELL</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <code>rbenv install 2.4.0</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code>rbenv global 2.4.0</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="6">
+                            <code>ruby -v</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="7">
+                            <code>gem install bundler</code>
+                        </li>
+                    </ul>
+                </section>
+
+            </section>
+            <section>
+                <section>
+                    <img data-src="img/git.jpg">
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Git</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="0">
+                            <code data-trim data-noescape><span style="text-decoration: line-through;"> sudo apt-get install git-core </span></code> Instalamos previamente com...
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code data-trim data-noescape>git config --global color.ui true</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code data-trim data-noescape>git config --global user.name "YOUR NAME"</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code data-trim data-noescape>git config --global user.email "YOUR@EMAIL.com"</code>
+                        </li>
+
+                    </ul>
+                </section>
+                <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
+                    <p>Gerando uma chave SSH</p>
+                    <code data-trim data-noescape>ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"</code>
+                </section>
+                <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
+                    <p>Visualizando a chave gerada</p>
+                    <code data-trim data-noescape>cat ~/.ssh/id_rsa.pub</code>
+                </section>
+                <section>Inserindo a chave gerada em <a href="https://github.com/settings/keys">Sua conta do GitHub</a></section>
+                <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
+                    <p>Testando a configuração</p>
+                    <code data-trim data-noescape>ssh -T git@github.com</code>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <img data-src="img/rails.svg">
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <h4>Obtendo o NODEJS
+                                <h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code data-trim data-noescape>curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -</code>
+                            <aside class="notes">
+                                Desde Rails navios com tantas dependências nos dias de hoje, vamos precisar instalar um runtime JavaScript como NodeJS. Isso permite que você use o Coffeescript e o Pipeline de recursos no Rails, que combina e minimiza seu javascript para fornecer um
+                                ambiente de produção mais rápido. Para instalar o NodeJS, vamos adicioná-lo usando o repositório oficial:
+                            </aside>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code data-trim data-noescape>sudo apt-get install -y nodejs</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <h4>Versão atual 5.0.1</h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code data-trim data-noescape>gem install rails -v 5.0.1</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="6">
+                            <code data-trim data-noescape>rbenv rehash</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="7">
+                            <h4>Veriificando...
+                                <h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="8">
+                            <code data-trim data-noescape>rails -v</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="9">
+                            <p>Saída do console:</p>
+                            <code data-trim data-noescape># Rails 5.0.1</code>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                    </div>
+                    <img data-src="img/postgresql-logo.png">
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                        <h3>Atualizando o Repositório</h3>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code data-trim data-noescape>sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code data-trim data-noescape>wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                        <h3>Instalando</h3>
+                        <ul>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                                <code data-trim data-noescape>sudo apt-get update</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                                <code data-trim data-noescape>sudo apt-get install postgresql-common</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                                <code data-trim data-noescape>sudo apt-get install postgresql-9.5 libpq-dev</code>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                        <h3>Criando Usuário</h3>
+                        <ul>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                                <code data-trim data-noescape>sudo -u postgres createuser unipe -s</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                                <code data-trim data-noescape>sudo -u postgres psql</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                                <code data-trim data-noescape>postgres=# \password unipe</code>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div>
+                        <h2>Testando o Ambiente</h2>
+                        <h3>Aplicativo de Exemplo</h3>
+                        <ul>
+                            <li>
+                                <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Criando o App</p>
+                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="2">rails new myapp -d postgresql</code>
+                            </li>
+                            <li>
+                                <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">Configurando a Base de Dados</p>
+                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="4">config/database.yml</code>
+                                <aside class="notes">
+                                    <P>
+                                        Observe que isso irá esperar um usuário postgres com o mesmo nome e senha, nas configurações de seu aplicativo, sendo necessário editar o arquivo config/database.yml
+                                    </p>
+                                </aside>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <p>Acesse a pasta do App</p>
+                            <code data-trim data-noescape>cd</code>
+                        </li>
+
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <p>Criando a base de dados</p>
+                            <code data-trim data-noescape>rails db:create</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <p>Execute o servidor</p>
+                            <code data-trim data-noescape>rails server</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <p>Acesse o App</p>
+                        <code data-trim data-noescape>http://localhost:3000</code>
+                    </div>
+
+                    <div class="fragment fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <img src="img/index.png" alt="Acesso ao servidor local">
+                    </div>
+
+
+                </section>
+            </section>
+
+        </div>
+        <div class="slides">
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h1>
+                            Aula 2 - Ruby
+                        </h1>
+                    </div>
+                    <img data-src="img/ruby.svg">
+                    <aside class="notes">
+                        Ruby é uma linguagem orientada a objetos. Como o seu Ruby Code é avaliado pelo computador?
+                    </aside>
+                </section>
+                <section data-markdown>
+
+                    <script type="text/template">
+                        ## Overview ##
+
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="0" -->
+                        - IRB
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="1" -->
+                        - Variáveis, métodos e escopo
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="2" -->
+                        - Operadores
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="3" -->
+                        - Classes, variáveis, atributos e métodos
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="4" -->
+                        - Herança
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="5" -->
+                        - Estruturas de Condição e de Repetição
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="6" -->
+                        - Tipologia
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="7" -->
+                        - Parametrização
+                        <!-- .element: class="fragment highlight-current-blue fade-up" data-fragment-index="8" -->
+                    </script>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <h3>Variáveis, métodos e escopo</h3>
+                    </div>
+                </section>
+                <section>
+                    <h3>Operadores</h3>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <h3>Classes, variáveis, atributos e métodos</h3>
+                    </div>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <h3>Herança</h3>
+                    </div>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="4">
+                        <h3>Estruturas de Condição e de Repetição</h3>
+                    </div>
+                </section>
+                <section>
+                    <div class="fragment highlight-blue">
+                        <h3>Tipologia</h3>
+                    </div>
+                </section>
+                <section>
+                    <div class="highlight-blue">
+                        <h3>Parametrização</h3>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h3>IRB</h3>
+                        <ul>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                                <code data-trim data-noescape>$ irb</code>
+                                <aside class="notes">
+                                    O intérprete para Ruby - basicamente, o cérebro principal da linguagem de programação que faz sentido do código que você escreve - lê o código de cima para baixo e da esquerda para a direita; Ou seja, começa na linha 1, o caractere 1, literalmente, e
+                                    primeiro lê através da linha 1 para o último caractere, então desce até a próxima linha e repete esse processo até atingir a última linha do seu programa.
+                                </aside>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                                <code data-trim data-noescape>Ruby Objects</code>
+                                <aside class="notes">
+                                    Um objeto é uma coisa. Ele está no coração do Ruby. O Ruby sendo uma linguagem orientada a objetos, significa que Ruby manipula todos os dados na suposição de que os dados são um objeto. Existem muitas linguagens orientadas a objetos, mas poucas colocam
+                                    o objeto no centro de seu universo como Ruby. Em Ruby, tudo é um objeto. Quero dizer tudo: cada variável, cada operação. Cada objeto tem características diferentes; Isso é o que os torna diferentes. Uma seqüência de
+                                    caracteres é um objeto que possui características internas que o tornam adequado para manipulação de texto.
+                                </aside>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                                <code data-trim data-noescape>Ruby Methods</code>
+                                <p>Considere a variável a seguir:</p>
+                                <code>string1 = "esta é uma string qualquer"</code>
+                                <p>Se você escreve <code>string1.capitalize</code>, a saída seria algo assim:</p>
+                                <code>"Esta é uma string qualquer"</code>
+                                <aside class="notes">
+                                    Um método é simplesmente uma definição de uma ação que pode ser realizada em um objeto. Ruby tem built-in definições de objetos e métodos. Um desses métodos é captilize para a classe string Ruby (vamos mergulhar em seqüências de caracteres mais tarde).
+                                </aside>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h3>Ruby Classes</h3>
+                    <p></p>
+
+                    <aside>
+                        Uma classe é como um plano que permite criar objetos de um tipo específico e criar métodos que se relacionam com esses objetos. Mas as classes têm uma propriedade especial chamada "herança". Herança significa exatamente o que você pensaria. Quando você
+                        herda algo de alguém, provavelmente significa algumas coisas:
+                    </aside>
+                </section>
+            </section>
+        </div>
+        <div class="slides">
+            <section>
+                <div class="fragment highlight-current-blue">
+                    <h4>
+                        Aula 3 - Testando o Scaffold</h4>
+                    <p>Como o Rails gera os artefatos (Models - Cotrollers - Views) automaticamente</p>
+                </div>
+                <img data-src="img/scaffold.png">
+                <aside class="notes">
+                    Testando o Scaffold
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <p>Abra o terminal e digite o código abaixo, para criar um novo APP</p>
+                    <code>rails new junta_medica -d postgresql</code>
+                </section>
+                <section>
+                    <p>Acesse a pasta do APP</p>
+                    <code>cd junta_medica</code>
+                </section>
+                <section>
+                    <p>Gere um componente</p>
+                    <code>rails generate scaffold patient name:string cpf:string email:string address:string phone:string</code>
+                </section>
+                <section>
+                    <p>Gere o componente Patologia</p>
+                    <code>rails generate scaffold pathology description:string cid:integer</code>
+                </section>
+                <section>
+                    <p>Gere o componente Atestado Médico</p>
+                    <code>rails generate scaffold medical_diagnostic start_date:date period:integer doctor:string</code>
+                </section>
+                <section>
+                    <p>Edite o arquivo:</p>
+                    <code>config/database.yml</code>
+                    <p>Atualize as informações</p>
+                    <code>username: unipe</code>
+                    <code>password: unipe</code>
+                    <code>host: localhost</code>
+                    <code>port: 5432</code>
+                    <p>Salve</p>
+                </section>
+                <section>
+                    <p>No terminal execute os comandos:</p>
+                    <code>rails db:create</code>
+                    <code>rails db:migrate</code>
+                    <code>rails server</code>
+                    <p>aceesse http://localhost:3000</p>
+                </section>
+            </section>
+        </div>
+        <div class="slides">
+            <section>
+                <div class="fragment highlight-current-blue">
+                    <h4>
+                        Aula 4 - Construindo um Model sem o Scaffold</h4>
+                    <p>Como o Rails gera os artefatos (Models - Cotrollers - Views) separadamente</p>
+                </div>
+                <img data-src="img/scaffold.png">
+                <aside class="notes">
+                    Abandonando o Scaffold
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <p>Abra o terminal e acesse a pasta do nosso APP</p>
+                    <code> cd /home/$USER/junta_medica</code>
+                </section>
+                <section>
+                    <p>Gere um novo Model</p>
+                    <code>rails generate model historic patient: Patient</code>
+                </section>
+                <section>
+                    <p>Gere um componente</p>
+                    <code>rails generate scaffold patient name:string cpf:string email:string address:string phone:string</code>
+                </section>
+                <section>
+                    <p>Gere o componente Patologia</p>
+                    <code>rails generate scaffold pathology description:string cid:integer</code>
+                </section>
+                <section>
+                    <p>Gere o componente Atestado Médico</p>
+                    <code>rails generate scaffold medical_diagnostic start_date:date period:integer doctor:string</code>
+                </section>
+                <section>
+                    <p>Edite o arquivo:</p>
+                    <code>config/database.yml</code>
+                    <p>Atualize as informações</p>
+                    <code>username: unipe</code>
+                    <code>password: unipe</code>
+                    <code>host: localhost</code>
+                    <code>port: 5432</code>
+                    <p>Salve</p>
+                </section>
+                <section>
+                    <p>No terminal execute os comandos:</p>
+                    <code>rails db:create</code>
+                    <code>rails db:migrate</code>
+                    <code>rails server</code>
+                    <p>aceesse http://localhost:3000</p>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            // specified using percentage units.
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                }, {
+                    src: 'plugin/markdown/marked.js'
+                }, {
+                    src: 'plugin/markdown/markdown.js'
+                }, {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }, {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, { // Zoom in and out with Alt+click
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+            ]
+        });
+    </script>
+</body>
+
 </html>
