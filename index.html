@@ -108,19 +108,19 @@
                     <h3>Obtendo o Gerenciador de Versões do Ruby <strong>rbenv</strong></h3>
                     <ul>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
-                            <code>cd</code>
+                            <code>$ cd</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                            <code>git clone https://github.com/rbenv/rbenv.git ~/.rbenv</code>
+                            <code>$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
-                            <code>echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</code>
+                            <code>$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
-                            <code>echo 'eval "$(rbenv init -)"' >> ~/.bashrc</code>
+                            <code>$ echo 'eval "$(rbenv init -)"' >> ~/.bashrc</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
-                            <code>exec $SHELL</code>
+                            <code>$ exec $SHELL</code>
                         </li>
                     </ul>
                 </section>
@@ -128,25 +128,25 @@
                     <h3>Obtendo o Ruby <strong>ruby-build</strong></h3>
                     <ul>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
-                            <code>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code>
+                            <code>$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                            <code>echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</code>
+                            <code>$ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
-                            <code>exec $SHELL</code>
+                            <code>$ exec $SHELL</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
-                            <code>rbenv install 2.4.0</code>
+                            <code>$ rbenv install 2.4.0</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
-                            <code>rbenv global 2.4.0</code>
+                            <code>$ rbenv global 2.4.0</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="6">
-                            <code>ruby -v</code>
+                            <code>$ ruby -v</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="7">
-                            <code>gem install bundler</code>
+                            <code>$ gem install bundler</code>
                         </li>
                     </ul>
                 </section>
@@ -162,32 +162,32 @@
                     </div>
                     <ul>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="0">
-                            <code data-trim data-noescape><span style="text-decoration: line-through;"> sudo apt-get install git-core </span></code> Instalamos previamente com...
+                            <code data-trim data-noescape><span style="text-decoration: line-through;">$ sudo apt-get install git-core </span></code> Instalamos previamente com...
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
-                            <code data-trim data-noescape>git config --global color.ui true</code>
+                            <code data-trim data-noescape>$ git config --global color.ui true</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                            <code data-trim data-noescape>git config --global user.name "YOUR NAME"</code>
+                            <code data-trim data-noescape>$ git config --global user.name "YOUR NAME"</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
-                            <code data-trim data-noescape>git config --global user.email "YOUR@EMAIL.com"</code>
+                            <code data-trim data-noescape>$ git config --global user.email "YOUR@EMAIL.com"</code>
                         </li>
 
                     </ul>
                 </section>
                 <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
                     <p>Gerando uma chave SSH</p>
-                    <code data-trim data-noescape>ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"</code>
+                    <code data-trim data-noescape>$ ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"</code>
                 </section>
                 <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
                     <p>Visualizando a chave gerada</p>
-                    <code data-trim data-noescape>cat ~/.ssh/id_rsa.pub</code>
+                    <code data-trim data-noescape>$ cat ~/.ssh/id_rsa.pub</code>
                 </section>
                 <section>Inserindo a chave gerada em <a href="https://github.com/settings/keys">Sua conta do GitHub</a></section>
                 <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
                     <p>Testando a configuração</p>
-                    <code data-trim data-noescape>ssh -T git@github.com</code>
+                    <code data-trim data-noescape>$ ssh -T git@github.com</code>
                 </section>
             </section>
             <section>
@@ -207,14 +207,21 @@
                                 <h4>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                            <code data-trim data-noescape>curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -</code>
+                            <code data-trim data-noescape>$ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -</code>
                             <aside class="notes">
                                 Desde Rails navios com tantas dependências nos dias de hoje, vamos precisar instalar um runtime JavaScript como NodeJS. Isso permite que você use o Coffeescript e o Pipeline de recursos no Rails, que combina e minimiza seu javascript para fornecer um
                                 ambiente de produção mais rápido. Para instalar o NodeJS, vamos adicioná-lo usando o repositório oficial:
                             </aside>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
-                            <code data-trim data-noescape>sudo apt-get install -y nodejs</code>
+                            <code data-trim data-noescape>$ sudo apt-get install -y nodejs</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <h4>Verificando o NODEJS
+                                <h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code data-trim data-noescape>$ nodejs -v</code>
                         </li>
                     </ul>
                 </section>
@@ -224,13 +231,13 @@
                     </div>
                     <ul>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
-                            <h4>Versão atual 5.0.1</h4>
+                            <h4>Versão atual 5.0.2</h4>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
-                            <code data-trim data-noescape>gem install rails -v 5.0.1</code>
+                            <code data-trim data-noescape>$ gem install rails -v 5.0.2</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="6">
-                            <code data-trim data-noescape>rbenv rehash</code>
+                            <code data-trim data-noescape>$ rbenv rehash</code>
                         </li>
                     </ul>
                 </section>
@@ -244,11 +251,11 @@
                                 <h4>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="8">
-                            <code data-trim data-noescape>rails -v</code>
+                            <code data-trim data-noescape>$ rails -v</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="9">
                             <p>Saída do console:</p>
-                            <code data-trim data-noescape># Rails 5.0.1</code>
+                            <code data-trim data-noescape>$ Rails 5.0.2</code>
                         </li>
                     </ul>
                 </section>
@@ -263,14 +270,14 @@
                 <section>
                     <div class="fragment highlight-current-blue">
                         <h2>Configurando o SGBD</h2>
-                        <h3>Atualizando o Repositório</h3>
+                        <h3>Adicionando um novo Repositório</h3>
                     </div>
                     <ul>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
-                            <code data-trim data-noescape>sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"</code>
+                            <code data-trim data-noescape>$ sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                            <code data-trim data-noescape>wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -</code>
+                            <code data-trim data-noescape>$ wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -</code>
                         </li>
                     </ul>
                 </section>
@@ -280,13 +287,13 @@
                         <h3>Instalando</h3>
                         <ul>
                             <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
-                                <code data-trim data-noescape>sudo apt-get update</code>
+                                <code data-trim data-noescape>$ sudo apt-get update</code>
                             </li>
                             <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                                <code data-trim data-noescape>sudo apt-get install postgresql-common</code>
+                                <code data-trim data-noescape>$ sudo apt-get install postgresql-common</code>
                             </li>
                             <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
-                                <code data-trim data-noescape>sudo apt-get install postgresql-9.5 libpq-dev</code>
+                                <code data-trim data-noescape>$ sudo apt-get install postgresql-9.5 libpq-dev</code>
                             </li>
                         </ul>
                     </div>
@@ -297,10 +304,10 @@
                         <h3>Criando Usuário</h3>
                         <ul>
                             <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
-                                <code data-trim data-noescape>sudo -u postgres createuser unipe -s</code>
+                                <code data-trim data-noescape>$ sudo -u postgres createuser unipe -s</code>
                             </li>
                             <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
-                                <code data-trim data-noescape>sudo -u postgres psql</code>
+                                <code data-trim data-noescape>$ sudo -u postgres psql</code>
                             </li>
                             <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
                                 <code data-trim data-noescape>postgres=# \password unipe</code>
@@ -317,11 +324,11 @@
                         <ul>
                             <li>
                                 <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Criando o App</p>
-                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="2">rails new myapp -d postgresql</code>
+                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="2">$ rails new myapp -d postgresql</code>
                             </li>
                             <li>
                                 <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">Configurando a Base de Dados</p>
-                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="4">config/database.yml</code>
+                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="4">$ nano myapp/config/database.yml</code>
                                 <aside class="notes">
                                     <P>
                                         Observe que isso irá esperar um usuário postgres com o mesmo nome e senha, nas configurações de seu aplicativo, sendo necessário editar o arquivo config/database.yml
@@ -335,16 +342,16 @@
                     <ul>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
                             <p>Acesse a pasta do App</p>
-                            <code data-trim data-noescape>cd</code>
+                            <code data-trim data-noescape>$ cd</code>
                         </li>
 
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
                             <p>Criando a base de dados</p>
-                            <code data-trim data-noescape>rails db:create</code>
+                            <code data-trim data-noescape>$ rails db:create</code>
                         </li>
                         <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
                             <p>Execute o servidor</p>
-                            <code data-trim data-noescape>rails server</code>
+                            <code data-trim data-noescape>$ rails server</code>
                         </li>
                     </ul>
                 </section>
@@ -408,29 +415,41 @@
                         <h3>Variáveis, métodos e escopo</h3>
                     </div>
                 </section>
+            </section>
+            <section>
                 <section>
                     <h3>Operadores</h3>
                 </section>
+            </section>
+            <section>
                 <section>
                     <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">
                         <h3>Classes, variáveis, atributos e métodos</h3>
                     </div>
                 </section>
+            </section>
+            <section>
                 <section>
                     <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">
                         <h3>Herança</h3>
                     </div>
                 </section>
+            </section>
+            <section>
                 <section>
                     <div class="fragment highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="4">
                         <h3>Estruturas de Condição e de Repetição</h3>
                     </div>
                 </section>
+            </section>
+            <section>
                 <section>
                     <div class="fragment highlight-blue">
                         <h3>Tipologia</h3>
                     </div>
                 </section>
+            </section>
+            <section>
                 <section>
                     <div class="highlight-blue">
                         <h3>Parametrização</h3>
@@ -495,41 +514,59 @@
             </section>
             <section>
                 <section>
-                    <p>Abra o terminal e digite o código abaixo, para criar um novo APP</p>
-                    <code>rails new junta_medica -d postgresql</code>
+                    <h4> Construindo um novo APP</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Abra o terminal e digite o código abaixo, para criar um novo APP</p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails new junta_medica -d postgresql</code>
                 </section>
                 <section>
-                    <p>Acesse a pasta do APP</p>
-                    <code>cd junta_medica</code>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse a pasta do APP</p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ cd junta_medica</code>
                 </section>
                 <section>
-                    <p>Gere um componente</p>
-                    <code>rails generate scaffold patient name:string cpf:string email:string address:string phone:string</code>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Gere um componente</p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate scaffold patient name:string cpf:string email:string address:string phone:string</code>
                 </section>
                 <section>
-                    <p>Gere o componente Patologia</p>
-                    <code>rails generate scaffold pathology description:string cid:integer</code>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Gere o componente Patologia</p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate scaffold pathology description:string cid:integer</code>
                 </section>
                 <section>
-                    <p>Gere o componente Atestado Médico</p>
-                    <code>rails generate scaffold medical_diagnostic start_date:date period:integer doctor:string</code>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Gere o componente Atestado Médico</p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate scaffold medical_diagnostic start_date:date period:integer doctor:string</code>
                 </section>
                 <section>
-                    <p>Edite o arquivo:</p>
-                    <code>config/database.yml</code>
-                    <p>Atualize as informações</p>
-                    <code>username: unipe</code>
-                    <code>password: unipe</code>
-                    <code>host: localhost</code>
-                    <code>port: 5432</code>
-                    <p>Salve</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo:</p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">config/database.yml</code>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">Atualize as informações</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                        <code>username: unipe</code>
+                        <code>password: unipe</code>
+                        <code>host: localhost</code>
+                        <code>port: 5432</code>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">Salve</p>
                 </section>
                 <section>
-                    <p>No terminal execute os comandos:</p>
-                    <code>rails db:create</code>
-                    <code>rails db:migrate</code>
-                    <code>rails server</code>
-                    <p>aceesse http://localhost:3000</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No terminal execute os comandos:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <code>$ rails db:create</code>
+                        <code>$ rails db:migrate</code>
+                        <code>$ rails server</code>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">acesse <a href="http://localhost:3000">http://localhost:3000</a></p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Estilizando nosso APP</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse a pasta do APP:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <code>$ cd junta_medica</code>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">abra o editor de código</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                        <code>$ code .</code>
+                    </div>
                 </section>
             </section>
         </div>
@@ -540,48 +577,27 @@
                         Aula 4 - Construindo um Model sem o Scaffold</h4>
                     <p>Como o Rails gera os artefatos (Models - Cotrollers - Views) separadamente</p>
                 </div>
-                <img data-src="img/scaffold.png">
+                <img data-src="img/scaffolding-collapsed.jpg">
                 <aside class="notes">
                     Abandonando o Scaffold
                 </aside>
             </section>
             <section>
                 <section>
-                    <p>Abra o terminal e acesse a pasta do nosso APP</p>
-                    <code> cd /home/$USER/junta_medica</code>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Abra o terminal e acesse a pasta do nosso APP
+                    </p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        $ cd /home/$USER/junta_medica
+                    </code>
                 </section>
                 <section>
-                    <p>Gere um novo Model</p>
-                    <code>rails generate model historic patient: Patient</code>
-                </section>
-                <section>
-                    <p>Gere um componente</p>
-                    <code>rails generate scaffold patient name:string cpf:string email:string address:string phone:string</code>
-                </section>
-                <section>
-                    <p>Gere o componente Patologia</p>
-                    <code>rails generate scaffold pathology description:string cid:integer</code>
-                </section>
-                <section>
-                    <p>Gere o componente Atestado Médico</p>
-                    <code>rails generate scaffold medical_diagnostic start_date:date period:integer doctor:string</code>
-                </section>
-                <section>
-                    <p>Edite o arquivo:</p>
-                    <code>config/database.yml</code>
-                    <p>Atualize as informações</p>
-                    <code>username: unipe</code>
-                    <code>password: unipe</code>
-                    <code>host: localhost</code>
-                    <code>port: 5432</code>
-                    <p>Salve</p>
-                </section>
-                <section>
-                    <p>No terminal execute os comandos:</p>
-                    <code>rails db:create</code>
-                    <code>rails db:migrate</code>
-                    <code>rails server</code>
-                    <p>aceesse http://localhost:3000</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Gere um novo Model
+                    </p>
+                    <code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        $ rails generate model historic patient: Patient
+                    </code>
                 </section>
             </section>
         </div>
