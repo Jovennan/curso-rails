@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Curso Rails</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="http://www.pm.pb.gov.br/">
+                    <img alt="Brand" src="img/logoPMPB.png" width="50%" height="150%">
+                </a>
+            </div>
+            <ul id="navbar" class="nav navbar-nav navbar-collapse collapse" aria-expanded="false">
+                <li>
+                    <a href="index.html">
+                        <img alt="Home" src="img/icon-mini.png" width="25%" height="100%"> Home
+                    </a>
+                </li>
+
+                <li class="active"><a href="aula1.html"><button class="btn btn-primary" type="button">
+  Aula <span class="badge">1</span>
+</button> - Configuração</a></li>
+                <li><a href="aula3.html">Aula 3 - Scaffold</a></li>
+                <li><a href="aula4.html">Aula 4 - Models</a></li>
+                <li><a href="aula5.html">Aula 5 - Controllers e Views</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    <!-- .slide: data-background="#660000" -->
+                    ## Curso de Ruby on Rails
+                </script>
+            </section>
+            <section data-markdown>
+
+                <script type="text/template">
+                    ## Overview ##
+
+                    <!-- .element: class="fragment" data-fragment-index="0" -->
+                    - Preparando o ambiente
+                    <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * - Instalando o Ruby
+                    <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * - Configurando o Git
+                    <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * - Instalando o Rails
+                    <!-- .element: class="fragment" data-fragment-index="4" -->
+                    * - Configurando o SGBD
+                    <!-- .element: class="fragment" data-fragment-index="5" -->
+                    - Testando o ambiente
+                    <!-- .element: class="fragment" data-fragment-index="6" -->
+                </script>
+            </section>
+            <section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Preparando o ambiente
+                    </script>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h4>Opções</h4>
+                    </div>
+                    <img data-src="img/opções.svg">
+                    <aside class="notes">
+                        Você pode utilizar diferentes cenários para Desenvolver em Ruby e consequentemente em RubyOnRails, Linux, Mac, VirtualBox, VMware, Vagrant, Docker e Bash4Windows 10
+                    </aside>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ### Definindo o [sistema operacional](https://www.ubuntu.com/download/ubuntu-flavours)
+                    </script>
+                </section>
+                <section>
+                    <img data-src="img/so.png">
+                    <aside class="notes">
+                        Estaremos configurando um ambiente de desenvolvimento Ruby on Rails no Ubuntu 16.04 Xenial Xerus. A razão pela qual vamos usar o Ubuntu é porque a maioria do código que você escreve será executado em um servidor Linux. O Ubuntu é uma das distribuições
+                        Linux mais fáceis de usar, com muita documentação, por isso é uma excelente para começar. Você vai querer baixar a versão Desktop mais recente aqui: http://releases.ubuntu.com/16.04/ Alguns de vocês podem optar por desenvolver
+                        no Ubuntu Server para que seu ambiente de desenvolvimento corresponda ao seu servidor de produção. Você pode encontrá-lo no mesmo link de download acima.
+                    </aside>
+                </section>
+                <section>
+                    <iframe style="width:100%; height:650px" frameborder="no" data-src="https://www.ubuntu.com/download/ubuntu-flavours"></iframe>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-red">
+                        <h2>Setup Ruby
+                            <h2>
+                    </div>
+                    <img data-src="img/ruby.svg">
+                </section>
+                <section>
+                    <h3>Escolha a versão mais recente ou Recomendada</h3>
+                    <h2>Atualmente 2.4.0</h2>
+                    <img src="img/goRails.svg" alt="Go Rails">
+                </section>
+                <section>
+                    <h3 class="fragment grow" data-fragment-index="1">Dependências</h3>
+                    <p class="fragment highlight-current-blue grow" data-fragment-index="2"><code>sudo apt-get update</code></p>
+                    <p class="fragment highlight-current-blue grow" data-fragment-index="3">
+                        <code data-trim data-noescape>sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs</code>
+                    </p>
+                </section>
+                <section data-transition="zoom" data-transition-speed="fast">
+                    <h3>Obtendo o Gerenciador de Versões do Ruby <strong>rbenv</strong></h3>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code>$ cd</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code>$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code>$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <code>$ echo 'eval "$(rbenv init -)"' >> ~/.bashrc</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code>$ exec $SHELL</code>
+                        </li>
+                    </ul>
+                </section>
+                <section data-transition-speed="fast">
+                    <h3>Obtendo o Ruby <strong>ruby-build</strong></h3>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code>$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code>$ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code>$ exec $SHELL</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <code>$ rbenv install 2.4.0</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code>$ rbenv global 2.4.0</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="6">
+                            <code>$ ruby -v</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="7">
+                            <code>$ gem install bundler</code>
+                        </li>
+                    </ul>
+                </section>
+
+            </section>
+            <section>
+                <section>
+                    <img data-src="img/git.jpg">
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Git</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="0">
+                            <code data-trim data-noescape><span style="text-decoration: line-through;">$ sudo apt-get install git-core </span></code> Instalamos previamente com...
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code data-trim data-noescape>$ git config --global color.ui true</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code data-trim data-noescape>$ git config --global user.name "YOUR NAME"</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code data-trim data-noescape>$ git config --global user.email "YOUR@EMAIL.com"</code>
+                        </li>
+
+                    </ul>
+                </section>
+                <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
+                    <p>Gerando uma chave SSH</p>
+                    <code data-trim data-noescape>$ ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"</code>
+                </section>
+                <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
+                    <p>Visualizando a chave gerada</p>
+                    <code data-trim data-noescape>$ cat ~/.ssh/id_rsa.pub</code>
+                </section>
+                <section>Inserindo a chave gerada em <a href="https://github.com/settings/keys">Sua conta do GitHub</a></section>
+                <section class=" highlight-blue highlight-current-red fade-up" data-transition-speed="fast">
+                    <p>Testando a configuração</p>
+                    <code data-trim data-noescape>$ ssh -T git@github.com</code>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <img data-src="img/rails.svg">
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <h4>Obtendo o NODEJS
+                                <h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code data-trim data-noescape>$ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -</code>
+                            <aside class="notes">
+                                Desde Rails navios com tantas dependências nos dias de hoje, vamos precisar instalar um runtime JavaScript como NodeJS. Isso permite que você use o Coffeescript e o Pipeline de recursos no Rails, que combina e minimiza seu javascript para fornecer um
+                                ambiente de produção mais rápido. Para instalar o NodeJS, vamos adicioná-lo usando o repositório oficial:
+                            </aside>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <code data-trim data-noescape>$ sudo apt-get install -y nodejs</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <h4>Verificando o NODEJS
+                                <h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code data-trim data-noescape>$ nodejs -v</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                            <h4>Versão atual 5.0.2</h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="5">
+                            <code data-trim data-noescape>$ gem install rails -v 5.0.2</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="6">
+                            <code data-trim data-noescape>$ rbenv rehash</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o Rails</h2>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="7">
+                            <h4>Veriificando...
+                                <h4>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="8">
+                            <code data-trim data-noescape>$ rails -v</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="9">
+                            <p>Saída do console:</p>
+                            <code data-trim data-noescape>$ Rails 5.0.2</code>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                    </div>
+                    <img data-src="img/postgresql-logo.png">
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                        <h3>Adicionando um novo Repositório</h3>
+                    </div>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <code data-trim data-noescape>$ sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <code data-trim data-noescape>$ wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                        <h3>Instalando</h3>
+                        <ul>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                                <code data-trim data-noescape>$ sudo apt-get update</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                                <code data-trim data-noescape>$ sudo apt-get install postgresql-common</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                                <code data-trim data-noescape>$ sudo apt-get install postgresql-9.5 libpq-dev</code>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Configurando o SGBD</h2>
+                        <h3>Criando Usuário</h3>
+                        <ul>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                                <code data-trim data-noescape>$ sudo -u postgres createuser unipe -s</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                                <code data-trim data-noescape>$ sudo -u postgres psql</code>
+                            </li>
+                            <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                                <code data-trim data-noescape>postgres=# \password unipe</code>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div>
+                        <h2>Testando o Ambiente</h2>
+                        <h3>Aplicativo de Exemplo</h3>
+                        <ul>
+                            <li>
+                                <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Criando o App</p>
+                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="2">$ rails new myapp -d postgresql</code>
+                            </li>
+                            <li>
+                                <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">Configurando a Base de Dados</p>
+                                <code class="fragment fade-up" data-transition-speed="fast" data-trim data-noescape data-fragment-index="4">$ nano myapp/config/database.yml</code>
+                                <aside class="notes">
+                                    <P>
+                                        Observe que isso irá esperar um usuário postgres com o mesmo nome e senha, nas configurações de seu aplicativo, sendo necessário editar o arquivo config/database.yml
+                                    </p>
+                                </aside>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <ul>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                            <p>Acesse a pasta do App</p>
+                            <code data-trim data-noescape>$ cd</code>
+                        </li>
+
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                            <p>Criando a base de dados</p>
+                            <code data-trim data-noescape>$ rails db:create</code>
+                        </li>
+                        <li class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                            <p>Execute o servidor</p>
+                            <code data-trim data-noescape>$ rails server</code>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <p>Acesse o App</p>
+                        <code data-trim data-noescape>http://localhost:3000</code>
+                    </div>
+
+                    <div class="fragment fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <img src="img/index.png" alt="Acesso ao servidor local">
+                    </div>
+
+
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            // specified using percentage units.
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                }, {
+                    src: 'plugin/markdown/marked.js'
+                }, {
+                    src: 'plugin/markdown/markdown.js'
+                }, {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }, {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, { // Zoom in and out with Alt+click
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+            ]
+        });
+    </script>
+
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

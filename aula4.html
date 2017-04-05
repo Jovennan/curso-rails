@@ -1,0 +1,364 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Curso Rails</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="http://www.pm.pb.gov.br/">
+                    <img alt="Brand" src="img/logoPMPB.png" width="50%" height="150%">
+                </a>
+            </div>
+            <ul id="navbar" class="nav navbar-nav navbar-collapse collapse" aria-expanded="false">
+                <li>
+                    <a href="index.html">
+                        <img alt="Home" src="img/icon-mini.png" width="25%" height="100%"> Home
+                    </a>
+                </li>
+                <li><a href="aula1.html">Aula 1 - Configuração</a></li>
+                <li><a href="aula3.html">Aula 3 - Scaffold</a></li>
+                <li class="active"><a href="aula4.html"><button class="btn btn-primary" type="button">
+  Aula <span class="badge">4</span>
+</button> - Models</a></li>
+                <li><a href="aula5.html">Aula 5 - Controllers e Views</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="reveal">
+
+        <div class="slides">
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Aula 4 - Relacionamentos...</h2>
+                    </div>
+                    <img data-src="img/DER.png">
+                </section>
+                <section>
+                    <h4> Construindo um novo APP</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Abra o terminal e digite o código abaixo, para criar um novo APP</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails new portfolio -d postgresql</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">Acesse a pasta do APP</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="4">$ cd portifolio</code></pre>
+                </section>
+                <section>
+                    <h4> Configurações do SGBD</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo config/database.yml:</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Atualize as informações</p>
+                    <div class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <pre><code>
+                        username: seuUserDB
+                        password: senhaDoUserDB
+                        host: localhost
+                        port: 5432</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="4">Salve</p>
+                </section>
+
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">no terminal:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails db:create</code></pre>
+                </section>
+                <section>
+                    <h4>Gere os primeiros Models</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Gerando o Model Programmer</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">$ rails g model Programmer name:string</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Gerando o Model Client</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails g model Client name:string</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">Gerando o Model Project</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">$ rails g model Project description:string programmer:references client:references</code></pre>
+                </section>
+                <section>
+                    <h4 class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Migre as tabelas</h4>
+                    <pre><code data-trim data-noescape>
+                      rails db:migrate  
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Relacione os Models</h4>
+                    <img data-src="img/manyToMany.png">
+                </section>
+                <section>
+                    <h4>Acesse o console</h4>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">rails console</code></pre>
+
+                    <pre><code data-trim data-noescape>
+                        programmer = Programmer.create(name: 'Juquinha')
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        client = Client.create(name: 'Armazém Paraíba')
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        programmer.projects.create(client: client, description: 'Chega Já - Sistema de entregas')
+	                </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Gere os demais Models</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Gerando o Model Schedule</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">$ rails g model Schedule initial_date:date final_date:date project:references</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Gerando o Model Task</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails g model Task description:string schedule:references</code></pre>
+                </section>
+                <section>
+                    <h4 class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Migre as tabelas</h4>
+                    <pre><code data-trim data-noescape>
+                      rails db:migrate  
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Relacione os Models</h4>
+                    <img data-src="img/oneToMany.png">
+                </section>
+                <section>
+                    <h4>Acesse o console</h4>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">rails console</code></pre>
+
+                    <pre><code data-trim data-noescape>
+                        ENV["TZ"] = "America/Recife"
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        initial = Date.parse("2 Apr 2017")
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        final = Date.parse("2 Jul 2017")
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        schedule = Schedule.create(initial_date: initial, final_date: final, project: Project.find_by(id: 1))
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Continuando no console</h4>
+
+                    <pre><code data-trim data-noescape>
+                        task1 = Task.create(description: 'Levantamento de Requisitos', schedule: schedule)
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        task2 = Task.create(description: 'Definindo a Arquitetura', schedule: schedule)
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        task3 = Task.create(description: 'Modelagem do Banco de Dados', schedule: schedule)
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Ainda no console</h4>
+
+                    <pre><code data-trim data-noescape>
+                        task1.schedule
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        task1.schedule.project
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        task1.schedule.project.client.name
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        task1.schedule.project.programmer.name
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Mude para o console do Banco de Dados</h4>
+
+                    <pre><code data-trim data-noescape>
+                        $ rails db
+	                </code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+                        # SELECT * FROM projects;
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        # SELECT * FROM tasks;
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        # SELECT * FROM schedules;
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        # SELECT * FROM programmers;
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        # SELECT * FROM clients;
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        # SELECT Tasks.id, Schedules.initial_date, Tasks.description FROM Tasks INNER JOIN Schedules ON Tasks.schedule_id=Schedules.id;
+	                </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h4>Versionando nosso APP</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse a pasta do APP:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ git init</code></pre>
+                    </div>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <pre><code>$ git add -A</code></pre>
+                    </div>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                        <pre><code>$ git commit -m "Camada Model concluida"</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h4>No navegador</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Acesse
+                        <link href="https://github.com/new">Sua conta do GitHub</link>
+                    </p>
+
+                    <img src="img/portifolio.png" alt="Novo Repositório">
+
+                </section>
+                <section>
+                    <h4>No terminal</h4>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>$ git remote add origin git@github.com:seuUsuario/portifolio.git</code></pre>
+                    </div>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ git push -u origin master</code></pre>
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Atividade</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Considere o seguinte DER
+                    </p>
+
+                    <img src="img/DERlibrary.png" alt="Novo Repositório">
+                </section>
+                <section>
+                    <h4> Crie o APP</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Abra o terminal e digite o código abaixo, para criar um novo APP</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">$ rails new library</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Acesse a pasta do APP</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ cd library</code></pre>
+                </section>
+
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">no terminal:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails db:create</code></pre>
+                </section>
+                <section>
+                    <h4>Gere os Models</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Gerando o Model Author</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">$ rails g model Author name:string</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Gerando o Model Book</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails g model Book title:string theme:string</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">Gerando uma migração para o relacionamento</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">$ rails g migration CreateBooksAuthors author:references book:references</code></pre>
+                </section>
+                <section>
+                    <h4 class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Migre as tabelas</h4>
+                    <pre><code data-trim data-noescape>
+                      rails db:migrate  
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Relacione os Models</h4>
+                    <img data-src="img/library.png">
+                </section>
+                <section>
+                    <h4>Acesse o console</h4>
+
+                </section>
+
+                <section>
+                    Por hoje é isso...
+                </section>
+            </section>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            // specified using percentage units.
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                }, {
+                    src: 'plugin/markdown/marked.js'
+                }, {
+                    src: 'plugin/markdown/markdown.js'
+                }, {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }, {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, { // Zoom in and out with Alt+click
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+            ]
+        });
+    </script>
+
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
