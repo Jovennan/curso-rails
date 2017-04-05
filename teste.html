@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/material.min.css">
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+    <style type="text/css">
+        #conteudo {
+            width: 900px;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+
+            <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                <h3>Curso de Ruby on Rails</h3>
+            </div>
+
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+                <a href="#features" class="mdl-layout__tab">Features</a>
+                <a href="#features" class="mdl-layout__tab">Details</a>
+                <a href="#features" class="mdl-layout__tab">Technology</a>
+                <a onclick="carregar('aula1.html')" class="mdl-layout__tab">Aula 1</a>
+            </div>
+        </header>
+        <main class="mdl-layout__content ">
+            <div id="conteudo "></div>
+            <footer class="mdl-mega-footer ">
+                <div class="mdl-mega-footer--middle-section ">
+
+                </div>
+                <div class="mdl-mega-footer--bottom-section ">
+                    <div class="mdl-logo ">
+                        More Information
+                    </div>
+                    <ul class="mdl-mega-footer--link-list ">
+                        <li><a href="https://developers.google.com/web/starter-kit/ ">Web Starter Kit</a></li>
+                        <li><a href="# ">Help</a></li>
+                        <li><a href="# ">Privacy and Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!--  Scripts-->
+    <script src="js/material.min.js "></script>
+    <script>
+        function carregar(pagina) {
+            $.post('localhost:8000/aula1.html', function(html) {
+                $('#conteudo').html(html);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

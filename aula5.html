@@ -1,0 +1,440 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Curso Rails</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="http://www.pm.pb.gov.br/">
+                    <img alt="Brand" src="img/logoPMPB.png" width="50%" height="150%">
+                </a>
+            </div>
+            <ul id="navbar" class="nav navbar-nav navbar-collapse collapse" aria-expanded="false">
+                <li>
+                    <a href="index.html">
+                        <img alt="Home" src="img/icon-mini.png" width="25%" height="100%"> Home
+                    </a>
+                </li>
+                <li><a href="aula1.html">Aula 1 - Configuração</a></li>
+                <li><a href="aula3.html">Aula 3 - Scaffold</a></li>
+                <li><a href="aula4.html">Aula 4 - Models</a></li>
+                <li class="active"><a href="aula5.html"><button class="btn btn-primary" type="button">
+  Aula <span class="badge">5</span>
+</button> - Controllers e Views</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="reveal">
+
+        <div class="slides">
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Aula 5 - Controllers e Views</h2>
+                    </div>
+                    <img data-src="img/DER.png">
+                </section>
+                <section>
+                    <h4>Nosso 1º Controller</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Abra o terminal, na pasta do projeto portfolio</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">$ cd /caminho/do/projeto/portfolio</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Gere um Controller para o Model Programmer</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate controller Programmers index show new edit</code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Edite o arquivo app/controllers/programmers_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite as actions geradas</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerController1.png">
+                </section>
+                <section>
+                    <h4>Ainda no arquivo app/controllers/programmers_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Adicione a action create</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerControllerCreate2.png">
+                </section>
+                <section>
+                    <h4>Ainda no arquivo app/controllers/programmers_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Adicione a action update</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerControllerUpdate2.png">
+                </section>
+                <section>
+                    <h4>Ainda no arquivo app/controllers/programmers_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Adicione a action destroy</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerControllerDestroy2.png">
+                </section>
+                <section>
+                    <h4>Ainda no arquivo app/controllers/programmers_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Adicione as actions privadas set_programmer e programmer_params</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerControllerPrivate.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Nossa View para a lista de Programadores</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/programmers/index.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerViewIndex1.png">
+                </section>
+                <section>
+                    <img data-src="img/programmerViewIndex2.png">
+                </section>
+                <section>
+                    <img data-src="img/programmerViewIndex3.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Crie um partial para o form de Programadores</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">no diretório app/views/programmers/</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">crie o arquivo _form.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerViewForm1.png">
+                </section>
+                <section>
+                    <img data-src="img/programmerViewForm2.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Nossa View para cadastrar um Programador</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/programmers/new.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerViewNew.png">
+                </section>
+                <section>
+                    <h4>Nossa View para editar um Programador</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/programmers/edit.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerViewEdit.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Nossa View para exibir um Programador</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/programmers/show.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/programmerViewShow.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Editando o Tamplate do Layout</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/layout/application.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/layoutApplication.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>atualizando nossas Rotas</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo config/routes.rb</p>
+                </section>
+                <section>
+                    <img data-src="img/routes1.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Internacionalizando</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Adicione a gem rails-i18n no arquivo Gemfile</p>
+                    <img data-src="img/i18n.png">
+
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Atualize seu ambiente: </p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">$ bundle install</code></pre>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse: https://github.com/svenfuchs/rails-i18n</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Encontre o arquivo: /rails/locale/pt-BR.yml e copie o seu conteúdo</p>
+
+                    <img data-src="img/pt-BR.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Crie o arquivo: config/locales/pt-BR.yml</p>
+
+                    <img data-src="img/locales-pt-BR.png">
+
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">cole o conteúdo, previamente copiado</p>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Definindo o Idioma Padrão</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Edite o arquivo: config/application.rb</p>
+
+                    <img data-src="img/default_locale.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Testando a internacionalização</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/layout/application.html.erb</p>
+                </section>
+                <section>
+                    <img data-src="img/template-i18n.png">
+                </section>
+                <section>
+                    <h4>Testando a internacionalização</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">No arquivo: config/locales/pt-BR.yml adicione as traduções</p>
+                    <img data-src="img/variaveis-i18n.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Racionalizando a internacionalização</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Crie os arquivos pt-BR.yml e en.yml no diretório config/locales/programmers/</p>
+                    <img data-src="img/programmers-i18n.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Internacionalize nossa lista de Programadores index.html.erb</p>
+                    <img data-src="img/programmers-index1-i18n.png">
+                </section>
+                <section>
+                    <img data-src="img/programmers-index2-i18n.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Internacionalize nossa lista de Programadores index.html.erb</p>
+                    <img data-src="img/programmers-index3-i18n.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">No arquivo: config/locales/programmers/pt-BR.yml adicione as traduções</p>
+                    <img data-src="img/programmers-i18n-1.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Melhorando o alert confirm</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse: https://github.com/ifad/data-confirm-modal</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Adicione no arquivo Gemfile</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">gem 'data-confirm-modal'</code></pre>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">Atualize o ambiente</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="3">bundle install</code></pre>
+                </section>
+                <section>
+                    <h4>Melhorando o alert confirm</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Adicione no arquivo app/assets/javascript/application.js</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">//= require data-confirm-modal</code></pre>
+                    <img data-src="img/data-confirm-modal-js.png">
+                </section>
+                <section>
+                    <h4>Melhorando o alert confirm</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Incremente o link_to t('delete') da lista de Programadores</p>
+                    <img data-src="img/programmer-modal-i18n.png">
+                </section>
+                <section>
+                    <h4>Melhorando o alert confirm</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">No arquivo: config/locales/programmers/pt-BR.yml adicione as traduções</p>
+                    <img data-src="img/modal-translate-pt-br.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Nosso 2º Controller</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Gere um Controller para o Model Client</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate controller Clients index show new edit</code></pre>
+                </section>
+                <section>
+                    <h4>Edite o arquivo app/controllers/clients_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite as actions geradas</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Adicione novas actions: create, update e destroy</p>
+                </section>
+                <section>
+                    <h4>Nossa View para a lista de Clients</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/clients/index.html.erb</p>
+                </section>
+                <section>
+                    <h4>Rota para Clients</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo config/routes.rb</p>
+                    <img data-src="img/clients-routes.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Crie os arquivos pt-BR.yml e en.yml no diretório config/locales/clients/</p>
+                    <img data-src="img/clients-i18n.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Nosso 3º Controller</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Gere um Controller para o Model Project</p>
+                    <pre><code class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate controller Projects index show new edit</code></pre>
+                </section>
+                <section>
+                    <h4>Edite o arquivo app/controllers/projects_controller.rb</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite as actions geradas</p>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Adicione novas actions: create, update e destroy</p>
+                </section>
+                <section>
+                    <h4>Nossa View para a lista de Projects</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/projets/index.html.erb</p>
+                    <img data-src="img/project-view-index1.png">
+                </section>
+                <section>
+                    <h4>Nossa View para a lista de Projects</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/projets/index.html.erb</p>
+                    <img data-src="img/project-view-index2.png">
+                </section>
+                <section>
+                    <h4>Rota para Projects</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo config/routes.rb</p>
+                    <img data-src="img/projects-routes.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Crie os arquivos pt-BR.yml e en.yml no diretório config/locales/projects/</p>
+                    <img data-src="img/projects-i18n.png">
+                </section>
+                <section>
+                    <h4>Nossa View para exibir um Projeto</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/projets/show.html.erb</p>
+                    <img data-src="img/project-show.png">
+                </section>
+                <section>
+                    <h4>Nosso Partial para o form de Projeto</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/projets/_form.html.erb</p>
+                    <img data-src="img/project-form-view.png">
+                </section>
+                <section>
+                    <h4>Adicione os relacionamentos no Controller de Projeto</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/controllers/projets_controller.rb</p>
+                    <img data-src="img/project-controller-relacionamentos.png">
+                </section>
+                <section>
+                    <h4>Nossa View para um novo Projeto</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/projets/new.html.erb</p>
+                    <img data-src="img/project-new-view.png">
+                </section>
+                <section>
+                    <h4>Nossa View para editar um Projeto</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/projets/edit.html.erb</p>
+                    <img data-src="img/project-edit-view.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Validadores</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="2">Adicione o seguinte código:</p>
+                    <img data-src="img/models-validators.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Erro ao cadastrar Cliente sem nome</p>
+                    <img data-src="img/client-name-blank.png">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Erro ao cadastrar Cliente com nome repetido</p>
+                    <img data-src="img/client-name-exist.png">
+                </section>
+                <section>
+                    <h4>Capture os erros e Exiba nos seus Forms</h4>
+                    <p class="fragment highlight-blue highlight-current-blue fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o Arquivo app/views/clients/_form.html.erb</p>
+                    <img data-src="img/form-client-error-message.png">
+                </section>
+            </section>
+            <section>
+                <p>É só isso...</p>
+                <img data-src="img/iceberg-rails.jpg">
+            </section>
+        </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            // specified using percentage units.
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                }, {
+                    src: 'plugin/markdown/marked.js'
+                }, {
+                    src: 'plugin/markdown/markdown.js'
+                }, {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }, {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, { // Zoom in and out with Alt+click
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+            ]
+        });
+    </script>
+
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

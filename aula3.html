@@ -1,0 +1,538 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Curso Rails</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Bootstrap -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="http://www.pm.pb.gov.br/">
+                    <img alt="Brand" src="img/logoPMPB.png" width="50%" height="150%">
+                </a>
+            </div>
+            <ul id="navbar" class="nav navbar-nav navbar-collapse collapse" aria-expanded="false">
+                <li>
+                    <a href="index.html">
+                        <img alt="Home" src="img/icon-mini.png" width="25%" height="100%"> Home
+                    </a>
+                </li>
+                <li><a href="aula1.html">Aula 1 - Configuração</a></li>
+                <li class="active"><a href="aula3.html"><button class="btn btn-primary" type="button">
+  Aula <span class="badge">3</span>
+</button> - Scaffold</a></li>
+                <li><a href="aula4.html">Aula 4 - Models</a></li>
+                <li><a href="aula5.html">Aula 5 - Controllers e Views</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="reveal">
+
+        <div class="slides">
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h2>Aula 3 - Mão na massa...</h2>
+                    </div>
+                    <img data-src="img/rails.svg">
+                </section>
+                <section>
+                    <h4> Construindo um novo APP</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Abra o terminal e digite o código abaixo, para criar um novo APP</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails new jornal -d postgresql</code></pre>
+                </section>
+                <section>
+                    <h4> Configurações do SGBD</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo config/database.yml:</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Atualize as informações</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <pre><code>
+                        username: unipe
+                        password: unipe
+                        host: localhost
+                        port: 5432</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">Salve</p>
+                </section>
+
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">no terminal:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails db:create</code></pre>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse a pasta do APP</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ cd jornal</code></pre>
+                </section>
+                <section>
+                    <h4>Gere o controller</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Acessando Conteúdo Estático</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate controller paginas_estaticas</code></pre>
+                </section>
+                <section>
+                    <h4>Crie uma página</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Na pasta: app/view/paginas_estaticas</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Crie o arquivo: index.html.erb</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        No arquivo insira o seguinte conteúdo:
+                    </p>
+                    <pre><code data-trim data-noescape>
+                        &lth1&gt Olá Rails &lt/h1&gt
+	                </code></pre>
+                    <pre><code data-trim data-noescape>
+                        &lt%= @nome %&gt
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Crie uma action no controller</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No arquivo: app/controller/paginas_estaticas_controller.rb</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        Insira o seguinte conteúdo:
+                    </p>
+                    <pre><code data-trim data-noescape>
+                        def index	                
+                            @nome = "seu nome"
+                        end
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>crie uma rota para a action</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No arquivo: config/routes.rb</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        Insira o seguinte conteúdo:
+                    </p>
+                    <pre><code data-trim data-noescape>
+                        root to: "paginas_estaticas#index"
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>executo a aplicação</h4>
+
+                    <pre><code data-trim data-noescape>
+                        $ rails s
+	                </code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h4>Versionando nosso APP</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Acesse a pasta do APP:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ git init</code></pre>
+                    </div>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <pre><code>$ git add -A</code></pre>
+                    </div>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                        <pre><code>$ git commit -m "olá rails"</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h4>No navegador</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Acesse
+                        <link href="https://github.com/new">Sua conta do GitHub</link>
+                    </p>
+
+                    <img src="img/new_repository.png" alt="Novo Repositório">
+
+                </section>
+                <section>
+                    <h4>No terminal</h4>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>$ git remote add origin git@github.com:seuUsuario/jornal.git</code></pre>
+                    </div>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ git push -u origin master</code></pre>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h4>Estilizando nosso APP</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="0">
+                        Acesse o Repositório do <a href="https://github.com/twbs/bootstrap-sass">Bootstrap-sass</a>
+                    </p>
+                    <img src="img/bootstrap-sass.png" alt="Repositório Bootstrap-sass">
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        No arquivo gemfile adicione:
+                    </p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>gem 'bootstrap-sass', '~> 3.3.6'</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        Baixe a Gem:
+                    </p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ bundle install</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Altere o arquivo app/assets/stylesheets/application.css para application.scss e adicione:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>@import "bootstrap-sprockets";
+@import "bootstrap";
+body { padding-top: 100px; }
+footer { margin-top: 100px; }
+table, td, th { vertical-align: middle !important; border: none !important; }
+th { border-bottom: 1px solid #DDD !important; }</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Insira no arquivo app/assets/javascripts/application.js</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>//= require bootstrap-sprockets</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h4>Modifique o Template</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/layouts/application.html.erb</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Iserir o código abaixo, logo após a Tag &ltbody&gt</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3" data-trim data-noescape>
+                        &ltdiv class="navbar navbar-default navbar-fixed-top"&gt
+                            &ltdiv class="navbar-inner"&gt
+                                &ltdiv class="container"&gt
+                                    &ltul class="nav navbar-nav"&gt
+                                        &ltli&gt&lta href="/"&gtInício&lt/a&gt
+                                        &ltli&gt&lta href="/noticias"&gtNotícias&lt/a&gt&lt/li&gt
+                                    &lt/ul&gt
+                                &lt/div&gt
+                            &lt/div&gt
+                        &lt/div&gt                        
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Modifique o Template</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Ainda no arquivo application.html.erb</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Substitua a Tag <pre><code>&lt%= yield %&gt</code></pre> por:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3" data-trim data-noescape>
+                        &ltdiv class="container"&gt
+                            &lt%= yield %&gt
+                        &lt/div&gt                     
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>Modifique o Template</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Ainda no arquivo application.html.erb</p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Iserir o código abaixo, acima da Tag &lt/body&gt</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3" data-trim data-noescape>
+                        &ltfooter&gt
+                            &ltdiv class="container"&gt
+                                Unipe 2017
+                            &lt/div&gt
+                        &lt/footer&gt                        
+	                </code></pre>
+                </section>
+                <section>
+                    <h4>execute a aplicação</h4>
+
+                    <pre><code data-trim data-noescape>
+                        $ rails s
+	                </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h4>Pluralização com inflections</h4>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Na pasta config/initializers
+                    </p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        Edite o seguinte arquivo: inflections.rb
+                    </p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        E copie o código disponível em...
+                    </p>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        https://github.com/Jovennan/jornal/wiki/inflections.rb
+                    </p>
+                    <aside class="notes">
+                        Testando o Scaffold acesse https://github.com/Jovennan/jornal/wiki/inflections.rb
+                    </aside>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h4>Testando o Scaffold</h4>
+                        <p>Como o Rails gera os artefatos (Models - Cotrollers - Views) automaticamente</p>
+                    </div>
+                    <img data-src="img/scaffold.png">
+                    <aside class="notes">
+                        Testando o Scaffold
+                    </aside>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Gere o componente Noticia
+                    </p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">$ rails generate scaffold Noticia autor:string titulo:string conteudo:text imagem:string</code></pre>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No terminal execute os comandos:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ rails db:migrate
+$ rails server</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">acesse <a href="http://localhost:3000">http://localhost:3000</a></p>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        No arquivo gemfile adicione:
+                    </p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>gem 'carrierwave'</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        Baixe a Gem:
+                    </p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ bundle install</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">Agora podemos gerar o código para gerenciar uploads. No terminal execute:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <pre><code>rails generate uploader Imagem</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/models/noticia.rb acrescentando:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>
+                        mount_uploader :imagem, ImagemUploader
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/noticias/_form.html.erb substituindo na linha 31:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>
+                        &lt%= f.text_field :imagem %&gt
+                        </code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">por:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>
+                        &lt%= f.file_field :imagem %&gt
+                        </code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">e na linha 1:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">
+                        <pre><code>
+                        &lt%= form_for noticia do |f| %&gt
+                        </code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">por:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="4">
+                        <pre><code>
+                        &lt%= form_for(noticia, :html => { :multipart => true }) do |f| %&gt
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/noticias/show.html.erb substituindo na linha 20:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        <pre><code>&lt%= @noticia.imagem %&gt
+                        </code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">por:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>&lt%= image_tag(@noticia.imagem_url, :width => 600) if @noticia.imagem.present? %&gt
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No terminal execute os comandos:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ rails server</code></pre>
+                    </div>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">acesse <a href="http://localhost:3000">http://localhost:3000</a></p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">
+                        Gere o componente Comentario
+                    </p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">$ rails generate scaffold Comentario autor:string conteudo:text noticia_id:integer</code></pre>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Na pasta db/migrate/ edite o arquivo terminado em 'create_comentarios.rb' depois de:</p>
+
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">t.timestamps
+end</code></pre>
+
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">Insira:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="3">add_foreign_key :comentarios, :noticias, column: :noticia_id</code></pre>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No terminal execute os comandos:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ rails db:migrate
+$ rails server</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/models/noticia.rb acrescentando:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">has_many :comentarios
+                        </code></pre>
+
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">Edite o arquivo app/models/comentario.rb acrescentando:</p>
+
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">belongs_to :noticia
+                        </code></pre>
+
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/noticias/show.html.erb após a Tag de imagem:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">&lt%= image_tag(@noticia.imagem_url, :width => 600) if @noticia.imagem.present? %&gt</code></pre>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">adicine o seguinte:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">&lth3>Comentários&lt/h3&gt
+&lt% @noticia.comentarios.each do |comentario| %&gt
+  &ltdiv&gt
+    &ltstrong&gt&lt%= comentario.autor %&gt&lt/strong&gt
+    &ltbr /&gt
+    &ltp&gt&lt%= comentario.conteudo %&gt&ltp&gt
+  &lt/div&gt
+&lt% end %&gt
+&lt%= render 'comentarios/form' %&gt</code></pre>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/controllers/noticias_controller.rb na action show:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">def show
+end</code></pre>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">deixe-a assim:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">def show
+    @noticia = Noticia.find(params[:id])
+    @comentario = @noticia.comentarios.build
+end</code></pre>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">Edite o arquivo app/views/comentarios/_form.html.erb e após:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">&ltdiv class="field"&gt
+    &lt%= f.label :conteudo %&gt
+    &lt%= f.text_area :conteudo %&gt
+&lt/div&gt
+                        </code></pre>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">adiciona:</p>
+                    <pre><code class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">&ltdiv class="field"&gt
+    &lt%= f.hidden_field :noticia_id %&gt
+&lt/div&gt
+                        </code></pre>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <div class="fragment highlight-current-blue">
+                        <h4>Melhorando o Layout</h4>
+                        <p>adicione classes bootstrap</p>
+                    </div>
+                    <img data-src="img/grid.png">
+                    <img data-src="img/link_to.png">
+                    <img data-src="img/form-group.png">
+                    <img data-src="img/tabela.png">
+                    <aside class="notes">
+                        Testando o Scaffold
+                    </aside>
+                </section>
+                <section>
+                    <p class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="1">No terminal execute os comandos:</p>
+                    <div class="fragment highlight-blue highlight-current-red fade-up" data-transition-speed="fast" data-fragment-index="2">
+                        <pre><code>$ rails db:migrate
+$ rails server</code></pre>
+                    </div>
+                </section>
+                <section>
+                    Por hoje é isso...
+                </section>
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            // specified using percentage units.
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 1,
+            maxScale: 1,
+            history: true,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                }, {
+                    src: 'plugin/markdown/marked.js'
+                }, {
+                    src: 'plugin/markdown/markdown.js'
+                }, {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }, {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, { // Zoom in and out with Alt+click
+                    src: 'plugin/zoom-js/zoom.js',
+                    async: true
+                },
+            ]
+        });
+    </script>
+
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
