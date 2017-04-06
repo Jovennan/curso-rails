@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Curso Rails</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Reveal.JS -->
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- HTML5 shim e Respond.js para suporte no IE8 de elementos HTML5 e media queries -->
+    <!-- ALERTA: Respond.js não funciona se você visualizar uma página file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            </div>
+            <ul id="navbar" class="nav navbar-nav navbar-collapse collapse" aria-expanded="false">
+                <li>
+                    <a href="index.html">
+                        <img alt="Home" src="img/icon.svg" width="20%" height="20%"> Home
+                    </a>
+                </li>
+                <li><a href="aula1.html">Aula 1 - Configuração</a></li>
+                <li class="active"><a href="aula2.html"><button class="btn btn-xs btn-primary">
+  Aula <span class="badge">2</span>
+</button> O Framework</a></li>
+                <li><a href="aula3.html">Aula 3 - Scaffold</a></li>
+                <li><a href="aula4.html">Aula 4 - Models</a></li>
+                <li><a href="aula5.html">Aula 5 - Controllers e Views</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    <!-- .slide: data-background="#660000" -->
+                    ## Curso de Ruby on Rails
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## AULA 02 - O FRAMEWORK
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    <img data-src="img/rubyonrails.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section>
+                O QUE É RAILS?
+                <p class="fragment" data-fragment-index="3">Convention Over Configuration</p>
+                <p class="fragment" data-fragment-index="1">"Rails is the killer app for Ruby." - Matz</p>
+                <p class="fragment" data-fragment-index="2">Don't Repeat Yourself</p>
+                <aside class="notes">
+                    Rails tem opiniões sobre a melhor maneira de fazer muitas coisas em um aplicativo da web, e predefinições para este conjunto de convenções, ao invés de exigir que você especifique cada minúcias através de arquivos de configuração sem fim. Rails é uma
+                    estrutura de desenvolvimento de aplicações web escrita na linguagem Ruby. Ele é projetado para tornar mais fácil a programação de aplicativos da Web fazendo suposições sobre o que todo desenvolvedor precisa para começar. DRY é um princípio
+                    de desenvolvimento de software que afirma que "todo pedaço de conhecimento deve ter uma única, inequívoca, representação autoritária dentro de um sistema". Ao não escrever as mesmas informações uma e outra vez, nosso código é mais
+                    sustentável, mais extensível e menos bugado.
+                </aside>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## Comando Fundamentais
+
+                    <pre><center><code>$ rails new my_app</pre></center>
+                    </code>
+                    <pre><center><code>$ rails generate (g)</pre></center>
+                    </code>
+                    <pre><center><code>$ rails destroy</pre></center>
+                    </code>
+                    <pre><center><code>$ rails console (c)</pre></center>
+                    </code>
+                    <pre><center><code>$ rails dbconsole (db)</pre></center>
+                    </code>
+                    <pre><center><code>$ rails server (s)</pre></center>
+                    </code>
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## Criando um App rails new my_app
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## Estrutura de Pastas
+                    <img data-src="img/folder.jpg">
+                    <aside class="notes">
+                        Pasta de arquivo Objetivo app/ Contém os controladores, modelos, visualizações, helpers, mailers e recursos para sua aplicação. Você vai se concentrar nessa pasta para o restante deste guia. bin/ Contém o script rails que inicia seu aplicativo e pode
+                        conter outros scripts que você usa para configurar, atualizar, implantar ou executar seu aplicativo. config/ Configure as rotas, o banco de dados e muito mais do aplicativo. Isso é abordado em mais detalhes na Configuração de aplicativos
+                        do Rails . config.ru Configuração de rack para servidores baseados em rack usados ​​para iniciar o aplicativo. db/ Contém o seu esquema de banco de dados atual, bem como as migrações do banco de dados. Gemfile/Gemfile.lock Esses
+                        arquivos permitem especificar quais dependências de gem são necessárias para seu aplicativo Rails. Esses arquivos são usados ​​pela gem Bundler. Para obter mais informações sobre Bundler, consulte o site Bundler . lib/ Módulos
+                        ampliados para sua aplicação. log/ Arquivos de log do aplicativo. public/ A única pasta vista pelo mundo como-é. Contém arquivos estáticos e recursos compilados. Rakefile Este arquivo localiza e carrega tarefas que podem ser executadas
+                        a partir da linha de comando. As definições de tarefa são definidas em todos os componentes do Rails. Em vez de alterar Rakefile, você deve adicionar suas próprias tarefas adicionando arquivos ao diretório lib / tasks de seu aplicativo.
+                        README.md Este é um breve manual de instruções para sua aplicação. Você deve editar este arquivo para dizer aos outros o que seu aplicativo faz, como configurá-lo, e assim por diante. test/ Ensaios unitários, instalações e outros
+                        aparelhos de ensaio. Estes são abordados em Testing Rails Applications . tmp/ Arquivos temporários (como cache e arquivos pid). vendor/ Um local para todos os códigos de terceiros. Em um aplicativo Rails típico, isso inclui pedras
+                        vendidas.
+                    </aside>
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O PADRÃO DE ARQUITETURA MVC
+
+                    <img data-src="img/railsmvc.png">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## ENCONTRANDO O PADRÃO MVC NO RAILS
+
+                    <img data-src="img/rails_mvc_folders.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## Automatizando sua aplicação
+
+                    <pre><center><code>$ rails generate scaffold</pre></center>
+                    </code>
+                    <pre><center><code>$ rails generate controller</pre></center>
+                    </code>
+                    <pre><center><code>$ rails generate model</pre></center>
+                    </code>
+
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Poderoso scaffold
+                    <img data-src="img/scaffold.jpg">
+                    <p>rails generate scaffold</p>
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Poderoso scaffold
+
+                    <img data-src="img/scaffold_folders.jpg"> <img data-src="img/scaffold_folders_terminal.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## No Controle da aplicação
+
+                    <p>rails generate controller</p>
+                    <img data-src="img/rails_generate_controller.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Modelo da aplicação
+
+                    <p>rails generate model</p>
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Inimigo Number One do Generate
+
+                    <p>rails destroy </p>
+                    <img data-src="img/rails_destroy.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Console do Rails
+
+                    <p>`rails console`</p>
+                    <img data-src="img/rails_console.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Console do Rails para Database (MySQL, PostgreSQL e SQLite)
+
+                    <p>`rails dbconsole`</p>
+                    <img data-src="img/rails_dbconsole.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## O Servidor do Ruby on Rails
+
+                    <p>`rails server`</p>
+                    <img data-src="img/rails_server.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## Aplicando o Padrão RESTFul em Rails
+
+                    <img data-src="img/restful-routes.png">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-markdown>
+                <script type="text/template">
+                    ## Os Caminhos da aplicação
+
+                    <p>rails routes</p>
+                    <img data-src="img/rails_routes.jpg">
+                </script>
+            </section>
+        </div>
+        <div class="slides">
+            <section data-transition-speed="slow">
+                <h2>FIM!</h2>
+                <img data-src="img/rails_yay.jpg">
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            // specified using percentage units.
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            minScale: 0.5,
+            maxScale: 1,
+            history: true,
+            showNotes: false,
+
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                src: 'plugin/markdown/marked.js'
+            }, {
+                src: 'plugin/markdown/markdown.js'
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }]
+        });
+    </script>
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
